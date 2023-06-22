@@ -28,8 +28,19 @@ export class TodoComponent implements OnInit {
   addTask() {
     this.tasks.push({
       description: this.todoForm.value.item,
-      done: false
-    })
+      done: false,
+    });
+  }
+  deleteTask(i: number) {
+    this.tasks.splice(i, 1);
+  }
+
+  deleteInProgressTask(i: number) {
+    this.inprogress.splice(i, 1);
+  }
+
+  deleteDoneTask(i: number) {
+    this.done.splice(i, 1);
   }
 
   drop(event: CdkDragDrop<ITask[]>) {
